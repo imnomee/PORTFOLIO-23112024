@@ -59,7 +59,7 @@
 *::after {
     padding: 0;
     margin: 0;
-    box-sizing: border-boxs;
+    box-sizing: border-box;
 }
 a {
     text-decoration: none;
@@ -130,14 +130,24 @@ body.nav-active {
 .container {
     padding-inline: 16px;
 }
-
+.social-list {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.social-link {
+    font-size: 3rem;
+    transition: var(--transition-1);
+    display: inline-block;
+}
+.social-list .social-link:is(:hover, :focus-visible) {
+    transform: rotate(10deg) translateY(-3px);
+}
 /*-----------------------------------*\
   #HEADER
 \*-----------------------------------*/
 /* .navbar, */
-.overlay {
-    display: none;
-}
+
 .header {
     position: absolute;
     top: 0;
@@ -205,6 +215,42 @@ body.nav-active {
     padding: 6px;
     border-radius: var(--radius-circle);
     transition: var(--transition-1);
+}
+.nav-close-btn ion-icon {
+    --ionicon-stroke-width: 50px;
+}
+.nav-close-btn:is(:hover, :focus-visible) {
+    background: var(--white_a12);
+}
+
+.navbar-list {
+    margin-block-end: auto;
+}
+.navbar-link {
+    font-weight: var(--fw-700);
+    padding-block: 6px;
+}
+.contact-link {
+    transition: var(--transition-1);
+}
+.contact-link:is(:hover, :focus-visible) {
+    color: var(--cinnamon-satin);
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--raisin-black);
+    pointer-events: none;
+    opacity: 0;
+    transition: var(--transition-1);
+}
+
+.overlay.active {
+    pointer-events: all;
+    opacity: 0.8;
 }
 
 /*-----------------------------------*\
