@@ -231,6 +231,9 @@ body.nav-active {
     font-size: 3.5rem;
     color: var(--gunmetal);
 }
+.logo .h1 {
+    margin: 0;
+}
 .navbar {
     position: fixed;
     left: -400px;
