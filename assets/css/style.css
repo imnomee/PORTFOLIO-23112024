@@ -516,7 +516,15 @@ textarea.input-field {
 /*-----------------------------------*\
   #FOOTER
 \*-----------------------------------*/
-
+.footer {
+    padding-block-end: 40px;
+}
+.copyright {
+    margin-block-end: 12px;
+}
+.footer .social-link {
+    color: var(--charcoal);
+}
 /*-----------------------------------*\
   #MEDIA QUERIES
 \*-----------------------------------*/
