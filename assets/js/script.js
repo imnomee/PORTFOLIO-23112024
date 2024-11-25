@@ -35,7 +35,7 @@ const reveal = function () {
     for (let i = 0; i < revealElements.length; i++) {
         if (
             revealElements[i].getBoundingClientRect().top <
-            window.innerHeight / 1.2
+            window.innerHeight / 1.1
         ) {
             revealElements[i].classList.add('revealed');
         } else {
