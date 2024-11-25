@@ -1,8 +1,4 @@
 /*-----------------------------------*\
-  #main.css
-\*-----------------------------------*/
-
-/*-----------------------------------*\
   #CUSTOM PROPERTY
 \*-----------------------------------*/
 :root {
@@ -11,11 +7,11 @@
     --white_a8: hsla(0, 0%, 100%, 0.08);
     --white_a12: hsla(0, 0%, 100%, 0.12);
     --cultured: hsla(220, 20%, 97%, 1);
-    --snow: hsla(345, 57%, 97%, 1);
+    --snow: hsla(243, 100%, 93%, 1);
     --manatee: hsla(219, 10%, 62%, 1);
     --black-coral: hsla(220, 12%, 43%, 1);
     --cadet-blue-crayola_a20: hsla(222, 23%, 71%, 0.2);
-    --cinnamon-satin: hsla(344, 53%, 62%, 1);
+    --cinnamon-satin: hsla(242, 100%, 62%, 1);
     --raisin-black: hsla(216, 14%, 14%, 1);
     --raisin-black_a6: hsla(216, 14%, 14%, 0.06);
     --gunmetal: hsla(214, 15%, 21%, 1);
@@ -202,6 +198,28 @@ body.nav-active {
     gap: 30px;
 }
 
+[data-reveal] {
+    opacity: 0;
+    transition: 0.75s ease;
+}
+
+[data-reveal='top'] {
+    transform: translateY(-30px);
+}
+[data-reveal='bottom'] {
+    transform: translateY(30px);
+}
+[data-reveal='left'] {
+    transform: translateX(-30px);
+}
+[data-reveal='right'] {
+    transform: translateX(30px);
+}
+
+[data-reveal].revealed {
+    transform: translate(0);
+    opacity: 1;
+}
 /*-----------------------------------*\
   #HEADER
 \*-----------------------------------*/
@@ -292,10 +310,10 @@ body.nav-active {
     flex-direction: column;
     row-gap: 20px;
     text-transform: uppercase;
-    font-size: var(--fs-6);
-    letter-spacing: 2px;
 }
 .navbar-link {
+    font-size: var(--fs-6);
+    letter-spacing: 2px;
     font-weight: var(--fw-700);
     padding-block: 6px;
     display: block;
@@ -387,7 +405,7 @@ body.nav-active {
 /*-----------------------------------*\
   #ABOUT
 \*-----------------------------------*/
-.about .wraapper {
+.about .wrapper {
     display: grid;
     gap: 50px;
     margin-block-end: 70px;
@@ -428,6 +446,7 @@ body.nav-active {
 .project {
     border-block: 1px solid var(--cadet-blue-crayola_a20);
 }
+
 .project .title-wrapper {
     margin-block-end: 40px;
 }
@@ -446,7 +465,7 @@ body.nav-active {
     overflow: hidden;
 }
 .project-card-1,
-project-card-2 {
+.project-card-2 {
     padding: var(--padding);
 }
 .project-card-1 {
@@ -486,6 +505,9 @@ project-card-2 {
 .contact {
     padding-block-end: 0;
 }
+.contact .container {
+    margin-block-end: 20px;
+}
 .contact-card {
     background: var(--snow);
     padding: 32px;
@@ -518,9 +540,15 @@ textarea.input-field {
 \*-----------------------------------*/
 .footer {
     padding-block-end: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .copyright {
     margin-block-end: 12px;
+}
+.footer .social-list {
+    justify-content: center;
 }
 .footer .social-link {
     color: var(--charcoal);
@@ -528,3 +556,168 @@ textarea.input-field {
 /*-----------------------------------*\
   #MEDIA QUERIES
 \*-----------------------------------*/
+@media (min-width: 575px) {
+    .container {
+        max-width: 540px;
+        width: 100%;
+        margin-inline: auto;
+    }
+
+    .contact-card {
+        padding: 68px;
+    }
+}
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+    .section-text {
+        --fs-5: 2rem;
+    }
+    .about .grid-list {
+        grid-template-columns: 1fr 1fr;
+    }
+    .project .title-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+    }
+    .project .btn {
+        min-width: max-content;
+        width: 30%;
+        text-align: center;
+    }
+    .contact .section-text {
+        --fs-5: 1.8rem;
+    }
+    .input-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    .footer .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .copyright {
+        margin-block-end: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    :root {
+        --section-padding: 120px;
+    }
+    .container {
+        max-width: 960px;
+    }
+    .nav-open-btn,
+    .navbar-top,
+    .navbar .wrapper,
+    .overlay {
+        display: none;
+    }
+    .navbar,
+    .navbar.active {
+        all: unset;
+        display: flex;
+        flex-grow: 1;
+    }
+    .navbar-list {
+        display: flex;
+        flex-direction: row;
+        gap: 36px;
+        margin-inline: auto;
+        font-size: var(--fs-8);
+    }
+    .navbar-list li {
+        border: none;
+    }
+    .navbar-link {
+        font-size: var(--fs-7);
+        display: inline-block;
+    }
+
+    .social-link {
+        font-size: 2rem;
+    }
+    .header {
+        top: 15px;
+        max-width: 960px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding-inline: 16px;
+        border-radius: var(--radius-8);
+    }
+    .header.active {
+        top: 0;
+        left: 0;
+        max-width: unset;
+        border-radius: 0;
+        box-shadow: var(--shadow-2);
+    }
+    .hero {
+        padding-block-start: calc(var(--section-padding) + 20px);
+    }
+    .hero .container {
+        grid-template-columns: 0.8fr 1fr;
+        align-items: center;
+        gap: 50px;
+    }
+    .hero-content {
+        text-align: left;
+    }
+    .hero .btn-wrapper {
+        justify-content: flex-start;
+    }
+    .about .wrapper {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+    .about .grid-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .project .grid-list {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 50px;
+    }
+    .contact-card {
+        grid-template-columns: 0.8fr 1fr;
+        align-items: center;
+        gap: 90px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container,
+    .header {
+        max-width: 1140px;
+    }
+    .about .grid-list {
+        gap: 50px;
+    }
+    .contact-card {
+        gap: 50px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container,
+    .header {
+        max-width: 1320px;
+    }
+    .hero .container {
+        grid-template-columns: 1fr 0.8fr;
+    }
+    .hero .section-text {
+        --fs-5: 2.4rem;
+    }
+    .about .wrapper {
+        gap: 100px;
+    }
+    .about .grid-list {
+        gap: 60px;
+    }
+}
